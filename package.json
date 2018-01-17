@@ -1,0 +1,61 @@
+{
+  "name": "cmc-rail",
+  "version": "1.0.0",
+  "description": "Rail info screen (demo)",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack --config config/webpack.prod.config.js",
+    "lint": "./node_modules/.bin/eslint --ext '.js','.jsx' src/",
+    "precommit": "yarn test",
+    "start": "./node_modules/.bin/webpack-dev-server --open --config config/webpack.dev.config.js",
+    "test": "yarn lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lulondon/cmc-bus.git"
+  },
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/lulondon/cmc-bus/issues"
+  },
+  "homepage": "https://github.com/lulondon/cmc-bus#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-node": "^5.1.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.8",
+    "dotenv-webpack": "^1.5.4",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-plugin-flowtype": "^2.41.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.5.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "html-webpack-plugin": "^2.30.1",
+    "husky": "^0.14.3",
+    "purify-css": "^1.2.5",
+    "purifycss-webpack": "^0.7.0",
+    "uglifyjs-webpack-plugin": "^1.1.6",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.10.1",
+    "webpack-merge": "^4.1.1"
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "bootstrap": "^4.0.0-beta.3",
+    "font-awesome": "^4.7.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-tap-event-plugin": "^3.0.2",
+    "typeface-roboto": "^0.0.48"
+  }
+}
