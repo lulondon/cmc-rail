@@ -23,19 +23,28 @@ html {
 
 /* Custom data styles */
 
-.tube-service-information {
-  background-color: #F1F1F1;
-
+.departure-more-information-button {
+  color: #CCC;
 }
 
-.tube-status-icon {
-  line-height: 2rem;
-  vertical-align: middle;
+a.departure-header, a.departure-header:active {
+  color: #fff;
+  text-decoration: none;
 }
 
-.tfl-attribution-footer {
-  background-color: #F1F1F1;
+.departure-destination-name {
+  color: #333;
+}
+
+.departure-platform {
+  color: #444;
   font-size: 0.8rem;
+  line-height: 1.5rem;
+}
+
+.departure-late-text {
+  font-size: 0.8rem;
+  color: red;
 }
 
 /* Spinner */
