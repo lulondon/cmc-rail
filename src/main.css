@@ -106,7 +106,7 @@ a.departure-header, a.departure-header:active {
 
 @media (max-width: 991px) {
   body {
-    background-color: #B70062;
+    background-color: rgb(183, 0, 98);
   }
 
   .spinner > div {

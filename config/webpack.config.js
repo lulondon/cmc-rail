@@ -28,13 +28,22 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: extractTextPlugin.extract({
-          use: 'css-loader'
+        use: extractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
         })
       },
       {
-        test: /\.(svg|ttf|woff|woff2|eot)$/,
-        loader: 'url-loader'
+        test: /\.(svg|woff|woff2|ttf|eot)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              useRelativePath: true,
+              name: '[name].[ext]'
+            }
+          }
+        ]
       }
     ]
   },
