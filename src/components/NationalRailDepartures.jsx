@@ -14,7 +14,8 @@ export default class Departures extends Component {
       loading: false,
       title: props.title,
       station: props.station,
-      callingPoint: props.destination
+      callingPointCode: props.callingPointCode,
+      callingPointName: props.callingPointName
     }
   }
 
@@ -23,7 +24,7 @@ export default class Departures extends Component {
       const departures = []
       this.setState({ loading: true })
       rail.getDepartureBoardWithDetails(this.state.station, {
-        destination: this.state.callingPoint
+        destination: this.state.callingPointCode
       }, (err, response) => {
         if (err) {
           this.setState({ error: true, loading: false })
@@ -45,7 +46,8 @@ export default class Departures extends Component {
       error: false,
       title: nextProps.title,
       station: nextProps.station,
-      callingPoint: nextProps.destination
+      callingPointCode: nextProps.callingPointCode,
+      callingPointName: nextProps.callingPointName
     }, () => {
       this.loadData()
     })
@@ -65,9 +67,26 @@ export default class Departures extends Component {
   render() {
     return (
       <div id='accordion' className='tablist'>
-        {this.state.loading === true
-          ? <div className='spinner'><div className="bounce1"></div><div className="bounce2"></div><div className="bounce3"></div></div>
-          : this.state.departures}
+        <div className='list-group-item departure-board-header'>
+          <div role="tab">
+            <h4 className="mb-0">
+              <div className='m-0 p-2 pb-0'>
+                <h3 className=''>{this.state.title}</h3>
+                <p className='departure-board-header-subtitle m-0'>Departures from this station
+                {
+                  this.state.callingPointName
+                  ? ` calling at ${this.state.callingPointName}.`
+                  : '.'
+                }
+                </p>
+              </div>
+            </h4>
+          </div>
+        </div>
+
+            {this.state.loading === true
+              ? <div className='spinner'><div className="bounce1"></div><div className="bounce2"></div><div className="bounce3"></div></div>
+              : this.state.departures}
       </div>
     )
   }

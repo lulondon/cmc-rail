@@ -66,10 +66,11 @@ export default class Rail extends Component {
             {
               this.state.station
                 ? <Departures
-                    title={`${this.state.station.name} Departures`}
+                    title={`${this.state.station.name}`}
                     subtitle={this.state.callingPoint ? `Trains calling at ${this.state.callingPoint.name}` : 'All departures'}
                     station={this.state.station.code}
-                    destination={this.state.callingPoint ? this.state.callingPoint.code : null}
+                    callingPointName={this.state.callingPoint ? this.state.callingPoint.name : null}
+                    callingPointCode={this.state.callingPoint ? this.state.callingPoint.code : null}
                     limit={10}
                   />
                 : null

@@ -42,6 +42,15 @@ a.departure-header, a.departure-header:active {
   line-height: 1.5rem;
 }
 
+.departure-board-header {
+  background-color: rgb(54, 17, 99);
+  color: rgb(255, 255, 255);
+}
+
+.departure-board-header-subtitle {
+  font-size: 0.9rem;
+}
+
 .departure-late-text {
   font-size: 0.8rem;
   color: red;
