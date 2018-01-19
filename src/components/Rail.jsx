@@ -1,35 +1,22 @@
 import React, { Component } from 'react'
+import { Typeahead } from 'react-bootstrap-typeahead'
 
 import Departures from '../components/NationalRailDepartures'
 
-// import stations from '../lib/railStations'
+import railStations from '../lib/railStations'
 
-// const stationsConfig = {
-//   text: 'name',
-//   value: 'code'
-// }
-
-export default class Search extends Component {
+export default class Rail extends Component {
   constructor() {
     super()
     this.state = {
-      departure: {
-        name: 'Leicester',
-        code: 'LEI'
-      },
-      callingAt: null
+      loading: false
     }
 
-    this.handleChangeDeparture = this.handleChangeDeparture.bind(this)
-    this.handleChangeCallingAt = this.handleChangeCallingAt.bind(this)
+    this.handleClearCallingPoint = this.handleClearCallingPoint.bind(this)
   }
 
-  handleChangeDeparture(station) {
-    this.setState({ departure: station })
-  }
-
-  handleChangeCallingAt(station) {
-    this.setState({ callingAt: station })
+  handleClearCallingPoint() {
+    this.refs.callingPoint.getInstance().clear()
   }
 
   render() {
@@ -42,23 +29,47 @@ export default class Search extends Component {
                 <h1 className='display-4'>National Rail Departures</h1>
                 <p className='lead'>The next trains departing from this station.</p>
               </div>
+              <form>
+                <div className='form-row py-1 px-3'>
+                  <div className='form-group col-lg col-xs-12'>
+                    <label htmlFor='stationSelector'>Station Name</label>
+                    <Typeahead
+                      labelKey='name'
+                      ref='station'
+                      multiple={false}
+                      options={railStations}
+                      onChange={station => this.setState({ station: station[0] })}
+                      onFocus={this.handleClearCallingPoint}
+                    />
+                  </div>
+                </div>
+                <div className='form-row py-1 px-3'>
+                  <div className='form-group col-lg col-xs-12'>
+                    <label htmlFor='stationSelector'>Filter (trains calling at...)</label>
+                    <Typeahead
+                      labelKey='name'
+                      ref='callingPoint'
+                      multiple={false}
+                      options={railStations}
+                      disabled={!this.state.station}
+                      onChange={station => this.setState({ callingPoint: station[0] })}
+                      autocomplete={false}
+                    />
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
         <div className='row'>
           <div className='col-xs-12 col-lg-6 offset-lg-3'>
             {
-              this.state.loading
-                ? <div className='spinner'><div className="bounce1"></div><div className="bounce2"></div><div className="bounce3"></div></div>
-                : null
-            }
-            {
-              this.state.departure
+              this.state.station
                 ? <Departures
-                    title={`${this.state.departure.name} Departures`}
-                    subtitle={this.state.callingAt ? `Trains calling at ${this.state.callingAt.name}` : 'All departures'}
-                    station={this.state.departure.code}
-                    destination={this.state.callingAt ? this.state.callingAt.code : null}
+                    title={`${this.state.station.name} Departures`}
+                    subtitle={this.state.callingPoint ? `Trains calling at ${this.state.callingPoint.name}` : 'All departures'}
+                    station={this.state.station.code}
+                    destination={this.state.callingPoint ? this.state.callingPoint.code : null}
                     limit={10}
                   />
                 : null
