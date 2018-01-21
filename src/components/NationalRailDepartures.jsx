@@ -26,8 +26,10 @@ export default class Departures extends Component {
         destination: this.state.callingPointCode
       }, (err, response) => {
         if (err) {
-          this.setState({ loading: false })
+          this.setState({ loading: false, departures: [] })
+          this.props.handleAddError(err)
         } else {
+          this.props.handleClearErrors()
           response.trainServices.map((departure, i) =>
             departures.push(<TrainDepartureInfo key={i} departure={departure} />))
 
@@ -42,13 +44,17 @@ export default class Departures extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      error: false,
       stationName: nextProps.stationName,
       stationCode: nextProps.stationCode,
       callingPointCode: nextProps.callingPointCode,
       callingPointName: nextProps.callingPointName
     }, () => {
-      this.loadData()
+      if (
+        this.props.stationCode !== nextProps.stationCode
+        || this.props.callingPointCode !== nextProps.callingPointCode
+      ) {
+        this.loadData()
+      }
     })
   }
 

@@ -9,14 +9,25 @@ export default class Rail extends Component {
   constructor() {
     super()
     this.state = {
-      loading: false
+      loading: false,
+      errors: []
     }
 
     this.handleClearCallingPoint = this.handleClearCallingPoint.bind(this)
+    this.handleAddError = this.handleAddError.bind(this)
+    this.handleClearErrors = this.handleClearErrors.bind(this)
   }
 
   handleClearCallingPoint() {
     this.refs.callingPoint.getInstance().clear()
+  }
+
+  handleAddError(error) {
+    this.setState({ errors: this.state.errors.concat(String(error)) })
+  }
+
+  handleClearErrors() {
+    this.setState({ errors: [] })
   }
 
   render() {
@@ -75,7 +86,17 @@ export default class Rail extends Component {
                     callingPointName={this.state.callingPoint ? this.state.callingPoint.name : null}
                     callingPointCode={this.state.callingPoint ? this.state.callingPoint.code : null}
                     limit={10}
+                    handleAddError={this.handleAddError}
+                    handleClearErrors={this.handleClearErrors}
                   />
+                : null
+            }
+            {
+              this.state.errors.length > 0
+                ? this.state.errors.map((error, i) =>
+                    <p className='alert alert-danger my-1' key={i}>
+                      {error}
+                    </p>)
                 : null
             }
           </div>

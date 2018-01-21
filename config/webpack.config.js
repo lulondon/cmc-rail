@@ -34,17 +34,13 @@ module.exports = {
         })
       },
       {
-        test: /\.(svg|woff|woff2|ttf|eot)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              useRelativePath: true,
-              name: '[name].[ext]'
-            }
-          }
-        ]
-      }
+        test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: 'url-loader?limit=10000,outputPath=fonts/',
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+        use: 'file-loader?outputPath=fonts/'
+      },
     ]
   },
   resolve: {
