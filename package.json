@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Rail info screen (demo)",
   "main": "index.js",
+  "homepage": "176.31.181.202/rail",
   "scripts": {
     "build": "./node_modules/.bin/webpack --config config/webpack.prod.config.js",
     "lint": "./node_modules/.bin/eslint --ext '.js','.jsx' src/",
@@ -28,6 +29,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-node": "^5.1.1",
     "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.8",
     "dotenv-webpack": "^1.5.4",
     "eslint": "^4.15.0",
