@@ -16,6 +16,8 @@ export default class Departures extends Component {
       callingPointCode: props.callingPointCode,
       callingPointName: props.callingPointName
     }
+
+    this.loadDate = this.loadData.bind(this)
   }
 
   loadData() {
@@ -43,6 +45,9 @@ export default class Departures extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    const outgoingStationCode = this.props.stationCode
+    const outgoingCallingPointCode = this.props.callingPointCode
+
     this.setState({
       stationName: nextProps.stationName,
       stationCode: nextProps.stationCode,
@@ -50,8 +55,8 @@ export default class Departures extends Component {
       callingPointName: nextProps.callingPointName
     }, () => {
       if (
-        this.props.stationCode !== nextProps.stationCode
-        || this.props.callingPointCode !== nextProps.callingPointCode
+        outgoingStationCode !== nextProps.stationCode
+        || outgoingCallingPointCode !== nextProps.callingPointCode
       ) {
         this.loadData()
       }

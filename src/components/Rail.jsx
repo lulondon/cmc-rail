@@ -81,7 +81,7 @@ export default class Rail extends Component {
             {
               this.state.station
                 ? <Departures
-                    stationName={`${this.state.station.name}`}
+                    stationName={this.state.station.name}
                     stationCode={this.state.station.code}
                     callingPointName={this.state.callingPoint ? this.state.callingPoint.name : null}
                     callingPointCode={this.state.callingPoint ? this.state.callingPoint.code : null}
