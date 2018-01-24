@@ -42,7 +42,8 @@ export default class Rail extends Component {
                 <p>This page lists the next trains to leave a National Rail
                 train station within the next two hours.</p>
                 <p>You can filter trains by stations they stop at. Tap the
-                More... icon to see all calling points.</p>
+                <i className="fa fa-ellipsis-h px-2" aria-hidden="true"></i>
+                icon to see all calling points.</p>
                 <form>
                   <div className='form-row'>
                     <div className='form-group col-lg col-xs-12'>
