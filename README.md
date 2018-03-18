@@ -1,23 +1,24 @@
 # cmc-rail
-*cmc-rail* is a single-page application for requesting and displaying live National Rail departures information. It is designed specifically for Loughborough University London, and has some hardcoded elements that reflect this.
+*cmc-rail* is a single-page application for requesting and displaying live National Rail departures information.
 
 ## Usage
 ### Configuration
-Access to National Rail's Darwin API requires registration of the app, and use of an API key. More information is available on the [National Rail website](http://www.nationalrail.co.uk/100296.aspx).
 
-Once obtained, the keys should be added to the *.env* file in the project root.
+*cmc-rail*'s configuration options are stored in *config/config.json*.
 
-*.env*:
-```
-DARWIN_TOKEN=<your Darwin API token here>
+#### *config/config.json* example
+```JSON
+{
+  "DarwinApiProxy": "https://locationof.darwin-web-proxy:9001",
+  "DarwinToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+}
 ```
 
-### National Rail CORS proxy fix
-The National Rail Darwin API doesn't support CORS, making it difficult to use with Webpack/client-side apps. As a (temporary) fix, all APi calls must be made through a CORS proxy to append the appropriate HTTP headers. As a temporary shim, please run the below command to insert a CORS proxy to the HTTP requests:
-```shell
-./misc/nr-cors-fix.sh
-```
-Eventually, either I will find a suitable alternative, or fork the *national-rail-darwin* module's code and build support for an optional CORS proxy.
+##### DarwinApiProxy
+*cmc-rail* cannot connect to National Rail's Darwin API, as it has glitchy HTTPS, and does not support CORS, which makes it a bit of a challenge for client-side web apps. Rather than shimming a hardcoded CORS proxy into the *national-rail-darwin* module, this project is designed to work with an instance of [darwin-web-proxy](https://github.com/jonlinnell/darwin-web-proxy).
+
+##### DarwinToken
+Access to National Rail's Darwin API requires registration of the app, and use of an API key. More information is available on the [National Rail website](http://www.nationalrail.co.uk/100296.aspx). Once obtained, the key should be added to the *config/config.json* file.
 
 ### Build
 First install dependencies:

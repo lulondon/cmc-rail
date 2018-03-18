@@ -1,9 +1,9 @@
 {
   "name": "cmc-rail",
-  "version": "1.0.0",
-  "description": "Rail info screen (demo)",
+  "version": "2.0.0",
+  "description": "Rail info screen",
   "main": "index.js",
-  "homepage": "https://github.com/lulondon/cmc-bus#readme",
+  "homepage": "https://github.com/lulondon/cmc-rail#readme",
   "scripts": {
     "build": "NODE_ENV=production ./node_modules/.bin/webpack --config config/webpack.prod.config.js",
     "lint": "./node_modules/.bin/eslint --ext '.js','.jsx' src/",
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lulondon/cmc-bus.git"
+    "url": "git+https://github.com/lulondon/cmc-rail.git"
   },
   "author": "",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/lulondon/cmc-bus/issues"
+    "url": "https://github.com/lulondon/cmc-rail/issues"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -54,6 +54,7 @@
     "bootstrap": "^4.0.0-beta.3",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
+    "lodash": "^4.17.5",
     "national-rail-darwin": "^1.0.6",
     "popper.js": "^1.12.9",
     "react": "^16.2.0",

@@ -7,6 +7,6 @@ import 'font-awesome/css/font-awesome.min.css'
 
 import './main.css'
 
-import Rail from './components/Rail'
+import Rail from './components/containers/Rail'
 
 render(<Rail />, document.getElementById('root'))
