@@ -182,7 +182,7 @@ class ServiceHeader extends Component {
     }
 
     return (
-      <div role="tab" className='pb-3'>
+      <div role="tab" className='pb-1'>
         <h5 className="mb-0">
           <div className='d-flex justify-content-start'>
             <p className={departureHeaderClasses.concat(['text-secondary']).join(' ')}>{service.std}</p>
