@@ -137,6 +137,11 @@ class TrainDepartureInfo extends Component {
               <SubsequentCallingPoint key={callingPoint.crs} callingPoint={callingPoint} />)}
           </div>
         </div>
+        <div className='d-flex'>
+          <a className='ml-auto' data-toggle="collapse" href={`#${service.serviceId}`} role="button" aria-expanded="true" aria-controls={`#${service.serviceId}`}>
+            <i className="fa fa-ellipsis-h departure-more-information-button" aria-hidden="true"></i>
+          </a>
+        </div>
       </div>
     )
   }
@@ -186,9 +191,6 @@ class ServiceHeader extends Component {
           </div>
         </h5>
         {serviceInfo}
-        <a className='float-right py-2' data-toggle="collapse" href={`#${service.serviceId}`} role="button" aria-expanded="true" aria-controls={`#${service.serviceId}`}>
-          <i className="fa fa-ellipsis-h departure-more-information-button" aria-hidden="true"></i>
-        </a>
       </div>
     )
   }
