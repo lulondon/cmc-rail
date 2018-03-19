@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Typeahead } from 'react-bootstrap-typeahead'
 
-import DepartureBoard from './DepartureBoard'
+import DepartureBoard from '../containers/DepartureBoard'
 
 import railStations from '../../lib/railStations'
 
@@ -10,7 +10,6 @@ class Rail extends Component {
     const {
       callingPoint,
       departures,
-      errors,
       handleClearCallingPoint,
       handleUpdateCallingPoint,
       handleUpdateStation,
@@ -67,20 +66,12 @@ class Rail extends Component {
           <div className='col-xs-12 col-lg-6 offset-lg-3'>
             {
               station
-                ? <DepartureBoard
-                    departures={departures}
-                    station={station}
-                    callingPoint={callingPoint}
-                  />
-                : null
-            }
-            {
-              errors.length > 0
-                ? errors.map((error, i) =>
-                    <p className='alert alert-danger my-1' key={i}>
-                      {error}
-                    </p>)
-                : null
+              ? <DepartureBoard
+                  station={station}
+                  callingPoint={callingPoint}
+                  departures={departures}
+                />
+              : null
             }
           </div>
         </div>

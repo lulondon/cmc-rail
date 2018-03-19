@@ -17,18 +17,14 @@ class DepartureBoard extends Component {
           <div role="tab">
             <div className='m-0 p-2 pb-0'>
               <h3>{station.name}</h3>
-              <p className='departure-board-header-subtitle m-0'>Next trains from this station
-              {
-                callingPoint
-                ? ` calling at ${callingPoint.name}.`
-                : '.'
-              }
+              <p className='departure-board-header-subtitle m-0'>
+              {`Next trains from this station${callingPoint ? ` calling at ${callingPoint.name}` : '.'}`}
               </p>
             </div>
           </div>
         </div>
           {
-            loading === true
+            loading
               ? <div>Loading</div>
               : departures.map(service =>
                 <TrainDepartureInfo key={service.serviceId} service={service} />)
