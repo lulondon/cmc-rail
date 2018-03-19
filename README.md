@@ -10,7 +10,8 @@
 ```JSON
 {
   "DarwinApiProxy": "https://locationof.darwin-web-proxy:9001",
-  "DarwinToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  "DarwinToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "refreshInterval": 60000
 }
 ```
 
@@ -19,6 +20,9 @@
 
 ##### DarwinToken
 Access to National Rail's Darwin API requires registration of the app, and use of an API key. More information is available on the [National Rail website](http://www.nationalrail.co.uk/100296.aspx). Once obtained, the key should be added to the *config/config.json* file.
+
+##### refreshInterval
+How long to wait between polling the API for updates. Measured in milliseconds.
 
 ### Build
 First install dependencies:

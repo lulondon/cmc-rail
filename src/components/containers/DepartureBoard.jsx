@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import { DarwinApiProxy, DarwinToken } from '../../../config/config.json'
+import { DarwinApiProxy, DarwinToken, refreshInterval } from '../../../config/config.json'
 
 import DepartureBoard from '../ui/DepartureBoard'
 
@@ -22,6 +22,13 @@ class ContainerDepartureBoard extends Component {
 
   componentDidMount() {
     this.loadData()
+
+    const timer = setInterval(() => this.loadData(), refreshInterval || 120000)
+    this.setState({ timer })
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.timer)
   }
 
   componentWillReceiveProps(newProps) {

@@ -1,4 +1,5 @@
 {
   "DarwinApiProxy": "https://locationof.darwin-web-proxy:9001",
-  "DarwinToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  "DarwinToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "refreshInterval": 60000
 }
