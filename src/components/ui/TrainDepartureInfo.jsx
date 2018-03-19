@@ -18,9 +18,13 @@ class TrainDepartureInfo extends Component {
           </div>
         </div>
         <div className='d-flex'>
-          <a className='ml-auto' data-toggle="collapse" href={`#${service.serviceId}`} role="button" aria-expanded="true" aria-controls={`#${service.serviceId}`}>
-            <i className="fa fa-ellipsis-h departure-more-information-button" aria-hidden="true"></i>
-          </a>
+          {
+            service.etd !== 'Cancelled'
+            ? <a className='ml-auto' data-toggle="collapse" href={`#${service.serviceId}`} role="button" aria-expanded="true" aria-controls={`#${service.serviceId}`}>
+                <i className="fa fa-ellipsis-h departure-more-information-button" aria-hidden="true"></i>
+              </a>
+            : null
+          }
         </div>
       </div>
     )
