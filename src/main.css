@@ -62,50 +62,44 @@ a.departure-header, a.departure-header:active {
   border-radius: 0.25rem;
 }
 
-/* Spinner */
+/* Loading bar */
 
-.spinner {
-  margin: 0 auto;
-  width: 70px;
-  text-align: center;
+.list-group div:nth-child(2) {
+  border-bottom: none;
 }
 
-.spinner > div {
-  width: 12px;
-  height: 12px;
-  background-color: #333;
-
-  margin: 0 3px;
-
-  border-radius: 100%;
-  display: inline-block;
-  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+.list-group div:nth-child(3) {
+  border-top: none;
 }
 
-.spinner .bounce1 {
-  -webkit-animation-delay: -0.32s;
-  animation-delay: -0.32s;
+.loader-padding {
+  height: 4px;
 }
 
-.spinner .bounce2 {
-  -webkit-animation-delay: -0.16s;
-  animation-delay: -0.16s;
+.loader {
+  height: 4px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.loader:before{
+  display: block;
+  position: absolute;
+  content: "";
+  left: -200px;
+  width: 200px;
+  height: 4px;
+  background-color: #361163;
+  animation: loading 2s linear infinite;
 }
 
-@-webkit-keyframes sk-bouncedelay {
-  0%, 80%, 100% { -webkit-transform: scale(0) }
-  40% { -webkit-transform: scale(1.0) }
-}
-
-@keyframes sk-bouncedelay {
-  0%, 80%, 100% { 
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  } 40% { 
-    -webkit-transform: scale(1.0);
-    transform: scale(1.0);
-  }
+@keyframes loading {
+    from {left: -200px; width: 30%;}
+    50% {width: 30%;}
+    70% {width: 70%;}
+    80% { left: 50%;}
+    95% {left: 120%;}
+    to {left: 100%;}
 }
 
 /* Responsiveness tweaks */

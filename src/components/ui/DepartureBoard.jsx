@@ -12,7 +12,7 @@ class DepartureBoard extends Component {
     } = this.props
 
     return (
-      <div id='accordion' className='tablist'>
+      <div className='list-group' id='accordion'>
         <div className='list-group-item departure-board-header'>
           <div role="tab">
             <div className='m-0 p-2 pb-0'>
@@ -25,9 +25,11 @@ class DepartureBoard extends Component {
         </div>
           {
             loading
-              ? <div>Loading</div>
-              : departures.map(service =>
-                <TrainDepartureInfo key={service.serviceId} service={service} />)
+              ? <div className='list-group-item loader' />
+              : <div className='list-group-item loader-padding' />
+          }
+          {departures.map(service =>
+            <TrainDepartureInfo key={service.serviceId} service={service} />)
           }
       </div>
     )
