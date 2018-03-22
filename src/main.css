@@ -89,7 +89,7 @@ a.departure-header, a.departure-header:active {
   left: -200px;
   width: 200px;
   height: 4px;
-  background-color: #361163;
+  background-color: #009BC9;
   animation: loading 2s linear infinite;
 }
 

@@ -25,8 +25,8 @@ class DepartureBoard extends Component {
         </div>
           {
             loading
-              ? <div className='list-group-item loader' />
-              : <div className='list-group-item loader-padding' />
+              ? <div className='list-group-item p-0 loader' />
+              : <div className='list-group-item p-0 loader-padding' />
           }
           {departures.map(service =>
             <TrainDepartureInfo key={service.serviceId} service={service} />)
