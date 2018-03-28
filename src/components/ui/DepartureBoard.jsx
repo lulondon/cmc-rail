@@ -31,6 +31,9 @@ class DepartureBoard extends Component {
           {departures.map(service =>
             <TrainDepartureInfo key={service.serviceId} service={service} />)
           }
+          <div className='list-group-item attribution'>
+            Data provided by National Rail Enquiries.
+          </div>
       </div>
     )
   }
