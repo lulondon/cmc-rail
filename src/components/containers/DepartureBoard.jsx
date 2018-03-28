@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import { DarwinApiProxy, DarwinToken, refreshInterval } from '../../../config/config.json'
+import { darwinApiProxy, darwinToken, refreshInterval } from '../../../config/config.json'
 
 import DepartureBoard from '../ui/DepartureBoard'
 
@@ -46,8 +46,8 @@ class ContainerDepartureBoard extends Component {
     if (station) {
       this.setState({ loading: true })
 
-      axios.post(`${DarwinApiProxy}/getDepartureBoardWithDetails/${station.code}`, {
-        token: DarwinToken,
+      axios.post(`${darwinApiProxy}/getDepartureBoardWithDetails/${station.code}`, {
+        token: darwinToken,
         options: {
           destination: callingPoint ? callingPoint.code : null
         }
